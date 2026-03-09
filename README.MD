@@ -5,10 +5,14 @@
 
 ```docker rm -f bitcoind; docker run -d --name bitcoind -p 18443:18443 -v "${PWD}/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf" ruimarinho/bitcoin-core -regtest```
 
-### 2. Run Legacy (P2PKH)
-```python .\legacy_orchestrator.py```
+### 2. Run Legacy Transactions (P2PKH)
+```python .\legacy_transactions.py```
 
-### 3. Run SegWit
+### 3. Run P2SH-SegWit Transactions
+```python .\p2sh_segwit_transactions.py```
+
+---
+### Manual CLI Steps
 
 Create PowerShell alias for future use
 ```function bcli { docker exec bitcoind bitcoin-cli -regtest -rpcuser=nChain -rpcpassword=pass123 $args }```
