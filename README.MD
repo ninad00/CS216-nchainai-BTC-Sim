@@ -233,7 +233,7 @@ In WSL, navigate to the btcdeb folder and run:
 ./btcdeb '[<signature> <pubkey> OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG]'
 ```
 
-Use the exact command printed at the end of Part 1's output. Type `step` 7 times to step through each operation.
+Use the data from Part 1's output. Type `step` 7 times to step through each operation.
 
 **Note on OP_CHECKSIG:** btcdeb will show `error: Signature is found in scriptCode` at the OP_CHECKSIG step when the `--tx` flag is not provided. This is a known btcdeb 5.0.24 limitation — without full transaction context it cannot perform ECDSA verification. However, `--tx` triggers the buffer overflow bug on WSL2. The transaction's validity is confirmed by:
 1. `signrawtransactionwithwallet` returning `"complete": true`
@@ -248,7 +248,7 @@ All steps up to and including OP_EQUALVERIFY execute correctly and return TRUE (
 ./btcdeb '[<witness_sig> <witness_pubkey> OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG]'
 ```
 
-Use the exact command printed at the end of Part 2's output. Type `step` 7 times.
+Use the data from Part 2's output. Type `step` 7 times.
 
 For P2SH-P2WPKH, the witness stack contains only `<sig>` and `<pubkey>` with no OP codes — the OP codes (OP_DUP OP_HASH160 etc.) are implied by the witness program and executed internally by the Bitcoin node. This is normal SegWit behaviour.
 
