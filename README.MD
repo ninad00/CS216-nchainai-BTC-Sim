@@ -168,6 +168,18 @@ RPC_HOST     = "127.0.0.1"
 RPC_PORT     = 18443
 ```
 
+### Create / Load the Wallet
+
+The scripts connect to a wallet by name (default: `testwallet`). Create and/or load the wallet before running the scripts:
+
+```powershell
+& "C:\Program Files\Bitcoin\daemon\bitcoin-cli.exe" -regtest -rpcuser=your_rpc_user -rpcpassword=your_rpc_password createwallet "testwallet"
+# If the wallet already exists:
+& "C:\Program Files\Bitcoin\daemon\bitcoin-cli.exe" -regtest -rpcuser=your_rpc_user -rpcpassword=your_rpc_password loadwallet "testwallet"
+```
+
+Then update the `WALLET_NAME` constant in each script to match the wallet name you are using (default: `testwallet`).
+
 Files to update:
 - `part1_legacy_p2pkh.py`
 - `part2_segwit_p2sh.py`
