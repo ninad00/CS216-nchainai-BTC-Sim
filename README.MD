@@ -266,17 +266,6 @@ For P2SH-P2WPKH, the witness stack contains only `<sig>` and `<pubkey>` with no 
 
 ---
 
-## Decoding Transactions
-
-To decode any transaction by TXID using bitcoin-cli:
-
-```powershell
-$hex = (& "C:\Program Files\Bitcoin\daemon\bitcoin-cli.exe" -regtest -rpcuser=your_rpc_user -rpcpassword=your_rpc_password -rpcwallet=testwallet gettransaction "YOUR_TXID" | python -c "import sys,json; print(json.load(sys.stdin)['hex'])")
-& "C:\Program Files\Bitcoin\daemon\bitcoin-cli.exe" -regtest -rpcuser=your_rpc_user -rpcpassword=your_rpc_password decoderawtransaction $hex
-```
-
----
-
 ## Repository Structure
 
 ```
